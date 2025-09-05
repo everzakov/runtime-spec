@@ -453,6 +453,18 @@ type LinuxRdma struct {
 	HcaObjects *uint32 `json:"hcaObjects,omitempty"`
 }
 
+// LinuxVTPM for vTPM definition
+type LinuxVTPM struct {
+	// Path to the device in the host
+	HostPath string `json:"hostPath,omitempty"`
+	// Path to the device in the container
+	ContainerPath string `json:"containerPath,omitempty"`
+	// Device's major to be created
+	VTPMMajor int64 `json:"vtpmMajor,omitempty"`
+	// Device's minor to be created
+	VTPMMinor int64 `json:"vtpmMinor,omitempty"`
+}
+
 // LinuxResources has container runtime resource constraints
 type LinuxResources struct {
 	// Devices configures the device allowlist.
@@ -475,6 +487,8 @@ type LinuxResources struct {
 	Rdma map[string]LinuxRdma `json:"rdma,omitempty"`
 	// Unified resources.
 	Unified map[string]string `json:"unified,omitempty"`
+	// Linux VTPM configuration
+	VTPMs []LinuxVTPM `json:"vtpms,omitempty"`
 }
 
 // LinuxDevice represents the mknod information for a Linux special device file
