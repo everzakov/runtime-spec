@@ -463,6 +463,10 @@ type LinuxVTPM struct {
 	VTPMMajor int64 `json:"vtpmMajor,omitempty"`
 	// Device's minor to be created
 	VTPMMinor int64 `json:"vtpmMinor,omitempty"`
+	// UID of the vtpm device.
+	UID uint32 `json:"uid,omitempty"`
+	// Gid of the vtpm device.
+	GID uint32 `json:"gid,omitempty"`
 }
 
 // LinuxResources has container runtime resource constraints
